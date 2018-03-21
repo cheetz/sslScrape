@@ -13,3 +13,6 @@ Written by Peter Kim <Author, The Hacker Playbook> and @bbuerhaus
 Usage | python sslScrape.py [CIDR Range]
 E.X   | python sslScrape.py 10.100.100.0/24
  
+Requirements:
+pip install ndg-httpsclient
+pip install python-masscan
