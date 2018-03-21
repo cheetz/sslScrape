@@ -83,9 +83,15 @@ def getDomainFromCert(ipAddr, port = 443):
         # try to save all cn/alt names
         try:
             alt = get_subj_alt_name(cert)
+            #print "alt" + alt
+            #if alt == "":
+            #    return [name]
+            if not alt:
+                alt.append(name)
             return alt
         except:
             # failed, just save the CN instead
+            print "asdf"
             return [name]
         
     except:
@@ -127,5 +133,4 @@ if __name__ == "__main__":
             print host + ":" + ",".join(getDomainFromCert(host))
         except:
             print host + ":fail"
-
 
