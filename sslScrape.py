@@ -120,7 +120,8 @@ def callback(conn, cert, errno, depth, result):
     return True
 
 if __name__ == "__main__":  
-    banner()
+    if len(sys.argv) < 2:
+        banner()
     try:
         cidr =  sys.argv[1:][0]
     except:
