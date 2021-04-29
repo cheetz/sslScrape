@@ -3,8 +3,8 @@
 
 def banner():
 #Our banner, doubled slashes added for proper formatting when banner is shown in STDOUT.
-    print "-" * 70
-    print """
+    print ("-" * 70)
+    print ("""
 
   _________ _________.____       _________                                  
  /   _____//   _____/|    |     /   _____/ ________________  ______   ____  
@@ -16,10 +16,11 @@ def banner():
 SSLScrape | A scanning tool for scaping hostnames from SSL certificates.
 Written by Peter Kim <Author, The Hacker Playbook> and @bbuerhaus
                      <CEO, Secure Planet LLC>
-"""
-    print "Usage | python sslScrape.py [CIDR Range]"
-    print "E.X   | python sslScrape.py 10.100.100.0/24"
-    print "-" * 70
+""")
+    print (" Use pip3 install python-masscan, ndg-httpsclient")
+    print ("Usage | python3 sslScrape.py [CIDR Range]")
+    print ("E.X   | python3 sslScrape.py 10.100.100.0/24")
+    print ("-" * 70)
 
 
 import sys, socket, ssl, requests, ipaddress
@@ -31,8 +32,8 @@ from pyasn1.codec.der import decoder as der_decoder
 import masscan, errno, os, signal
 from functools import wraps
 
-#pip install ndg-httpsclient
-#pip install python-masscan
+#pip3 install ndg-httpsclient
+#pip3 install python-masscan
 class TimeoutError(Exception):
     pass
 
@@ -91,7 +92,7 @@ def getDomainFromCert(ipAddr, port = 443):
             return alt
         except:
             # failed, just save the CN instead
-            print "asdf"
+            print ("asdf")
             return [name]
         
     except:
@@ -130,7 +131,7 @@ if __name__ == "__main__":
     for host in mas.all_hosts:
         host = str(host)
         try:
-            print host + ":" + ",".join(getDomainFromCert(host))
+            print (host + ":" + ",".join(getDomainFromCert(host)))
         except:
-            print host + ":fail"
+            print (host + ":fail")
 
